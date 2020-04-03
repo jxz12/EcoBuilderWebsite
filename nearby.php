@@ -3,16 +3,19 @@ try
 {
     include 'security.php';
     $rsa = InitRSA();
+
+    $username = $_POST["username"];
+    $password = Decrypt($rsa, $_POST["password"]);
     $index = $_POST["level_index"];
-    $first_rank = $_POST["first_rank"];
-    $num_scores = $_POST["num_scores"];
 
     $sql = InitSQL();
+    VerifyLogin($sql, $username, $password);
 
     // first get an array of levels that we will need to populate
 
-    $leaderboards = '';
+    $nearby = '';
     $filter = InitProfanityFilter();
+    die("TODO");
 
     // get top n rows
     $stmt = $sql->prepare('SELECT username, score FROM leaderboards WHERE level_index=? ORDER BY score DESC, play_id ASC LIMIT ?,?');

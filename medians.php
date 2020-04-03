@@ -7,7 +7,7 @@ try
 
     // first get an array of indices that we will need to populate
     // needs to be one at a time because of not being able to use FLOOR in LIMIT
-    $stmt = $sql->prepare('SELECT level_index FROM medians WHERE is_cached=1');
+    $stmt = $sql->prepare('SELECT level_index FROM medians WHERE is_cached=0');
     $stmt->execute();
     $stmt->bind_result($index);
     $todos = array();
