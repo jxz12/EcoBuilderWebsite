@@ -29,16 +29,6 @@ CREATE TABLE IF NOT EXISTS playthroughs (
     FOREIGN KEY (username) REFERENCES players(username) ON DELETE SET NULL -- set to NULL for GDPR, but keep data
 );
 
-
-CREATE TABLE IF NOT EXISTS highscores ( -- this will only store per user high scores (regardless of if a playthrough exists)
-    username VARCHAR(255) NOT NULL, -- not nullable because we will remove if deleted
-    level_index INT(11) NOT NULL,
-    highscore BIGINT(20) NOT NULL,
-
-    PRIMARY KEY (username, level_index),
-    FOREIGN KEY (username) REFERENCES players(username) ON DELETE CASCADE -- cascade so that no hanging references
-);    
-
 CREATE TABLE IF NOT EXISTS leaderboards ( -- this will have only scores with verified playthroughs
     username VARCHAR(255) NOT NULL, -- not nullable because we will remove if deleted
     level_index INT(11) NOT NULL,
@@ -51,6 +41,15 @@ CREATE TABLE IF NOT EXISTS leaderboards ( -- this will have only scores with ver
     FOREIGN KEY (username) REFERENCES players(username) ON DELETE CASCADE -- for GDPR, cascade needed as username will not be deleted in playthroughs
 );
 
+CREATE TABLE IF NOT EXISTS highscores ( -- this store user high scores (REGARDLESS OF IF A PLAYTHROUGH EXISTS)
+    username VARCHAR(255) NOT NULL, -- not nullable because we will remove if deleted
+    level_index INT(11) NOT NULL,
+    highscore BIGINT(20) NOT NULL,
+
+    PRIMARY KEY (username, level_index),
+    FOREIGN KEY (username) REFERENCES players(username) ON DELETE CASCADE -- cascade so that no hanging references
+);
+
 CREATE TABLE IF NOT EXISTS medians (
     level_index INT(11) NOT NULL,
     num_scores INT(11) NOT NULL DEFAULT 0,
@@ -59,7 +58,6 @@ CREATE TABLE IF NOT EXISTS medians (
 
     PRIMARY KEY (level_index)
 );
-
 
 CREATE TABLE IF NOT EXISTS password_reset (
     username VARCHAR(255) NOT NULL,

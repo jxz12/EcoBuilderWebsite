@@ -33,6 +33,9 @@ function InitSQL()
 }
 function VerifyLogin($sql, $username, $password)
 {
+    // this is case insensitive for the username because of the database collation
+    // but not for the password because it is hashed before entry!
+    // fortunate coincidence :)
     $stmt = $sql->prepare('SELECT password_hash FROM players WHERE username=?;');
     $stmt->bind_param('s', $username);
     $stmt->execute();

@@ -3,11 +3,17 @@ try
 {
     include 'security.php';
     $rsa = InitRSA();
+    $score = $_POST["score"];
+    if ($score != Decrypt($rsa, $_POST["erocs"])) {
+        // weed out some cheaters
+        http_response_code(500);
+        die();
+    }
+
     $username = $_POST["username"];
     $password = Decrypt($rsa, $_POST["password"]);
     $index = $_POST["level_index"];
     $ticks = $_POST["datetime_ticks"];
-    $score = $_POST["score"];
     $matrix = $_POST["matrix"];
     $actions = $_POST["actions"];
 
@@ -16,7 +22,7 @@ try
 
     // insert into highscores if higher
     $stmt = $sql->prepare('INSERT INTO highscores (username, level_index, highscore) VALUES (?,?,?)
-        ON DUPLICATE KEY UPDATE highscore=GREATEST(highscore, VALUES(highscore))');
+        ON DUPLICATE KEY UPDATE highscore = IF(VALUES(highscore)>highscore, VALUES(highscore), highscore)');
     $stmt->bind_param('sii', $username, $index, $score);
     $stmt->execute();
     $stmt->close();
@@ -39,10 +45,9 @@ try
                                 score = IF(VALUES(score)>score, VALUES(score), score)');
     $stmt->bind_param('siii', $username, $index, $score, $play_id);
     $stmt->execute();
-    $affected_rows = $stmt->affected_rows;
     $stmt->close();
 
-    if ($affected_rows > 0)
+    if ($sql->affected_rows > 0)
     {
         // set median to not cached
         $stmt = $sql->prepare("INSERT INTO medians (level_index) VALUES (?)
@@ -51,7 +56,6 @@ try
         $stmt->execute();
         $stmt->close();
     }
-
 
     $sql->close();
 }

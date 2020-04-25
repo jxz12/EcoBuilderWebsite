@@ -19,11 +19,16 @@ try
     $stmt->bind_param('iii', $index, $first_rank, $num_scores);
     $stmt->execute();
     $stmt->bind_result($highname, $highscore);
-    $rank = $first_rank + 1;
-    while ($stmt->fetch() == TRUE)
+    if ($stmt->fetch() == TRUE)
     {
-        $leaderboards .= $rank . '. ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore) . "\n";
-        $rank += 1;
+        // TODO: show same rank number for same scores
+        $rank = $first_rank + 1;
+        $leaderboards .= $rank . '. ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
+        while ($stmt->fetch() == TRUE)
+        {
+            $rank += 1;
+            $leaderboards .= "\n" . $rank . '. ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
+        }
     }
     $stmt->close();
     
