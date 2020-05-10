@@ -45,9 +45,10 @@ try
                                 score = IF(VALUES(score)>score, VALUES(score), score)');
     $stmt->bind_param('siii', $username, $index, $score, $play_id);
     $stmt->execute();
+    $leaderboard_affected = $stmt->affected_rows;
     $stmt->close();
 
-    if ($sql->affected_rows > 0)
+    if ($leaderboard_affected > 0)
     {
         // set median to not cached
         $stmt = $sql->prepare("INSERT INTO medians (level_index) VALUES (?)

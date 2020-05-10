@@ -15,7 +15,7 @@ try
     $stmt->execute();
     if ($stmt->fetch() == FALSE || $email == '')
     {
-        http_response_code(409); // no username or (matched) email
+        http_response_code(401); // no username or (matched) email
         exit();
     }
     $stmt->close();

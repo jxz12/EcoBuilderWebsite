@@ -59,3 +59,19 @@ function InitProfanityFilter()
     $filter = new Filter('./profanity/profanities.php');
     return $filter;
 }
+function Ordinal($num)
+{
+    $ones = $num % 10;
+    $tens = floor($num / 10) % 10;
+    if ($tens == 1) {
+        $suff = "th";
+    } else {
+        switch ($ones) {
+            case 1 : $suff = "st"; break;
+            case 2 : $suff = "nd"; break;
+            case 3 : $suff = "rd"; break;
+            default : $suff = "th";
+        }
+    }
+    return $num . $suff;
+}

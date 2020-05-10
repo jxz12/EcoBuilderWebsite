@@ -23,11 +23,11 @@ try
     {
         // TODO: show same rank number for same scores
         $rank = $first_rank + 1;
-        $leaderboards .= $rank . '. ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
+        $leaderboards .= Ordinal($rank) . ': ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
         while ($stmt->fetch() == TRUE)
         {
             $rank += 1;
-            $leaderboards .= "\n" . $rank . '. ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
+            $leaderboards .= "\n" . Ordinal($rank) . ': ' . $filter->obfuscateIfProfane($highname) . ' ' . number_format($highscore);
         }
     }
     $stmt->close();
