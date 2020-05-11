@@ -55,12 +55,17 @@ try
         $medians .= $index . ':' . $median . ',';
     }
 
+	// check in case no medians exist yet
     if ($medians != '')
     {
         // remove final comma
         $medians = substr($medians, 0, -1);
+        echo $medians;
     }
-    echo $medians;
+    else
+    {
+        http_response_code(412);
+    }
 }
 catch (error $e)
 {

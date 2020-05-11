@@ -48,7 +48,7 @@ try
     $expires_ticks = $time->format('U');
     $stmt = $sql->prepare('INSERT INTO password_reset (username, selector, token, expires) VALUES (?,?,?,?)
         ON DUPLICATE KEY UPDATE selector=VALUES(selector), token=VALUES(token), expires=VALUES(expires)');
-    $stmt->bind_param('ssssi', $username, $selector, $token_hash, $expires_ticks);
+    $stmt->bind_param('sssi', $username, $selector, $token_hash, $expires_ticks);
     $stmt->execute();
     $stmt->close();
 
