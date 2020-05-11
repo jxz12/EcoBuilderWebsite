@@ -12,6 +12,7 @@ try
     // the highscores table should handle itself through a cascade in foreign key
     // playthroughs have no personal data so no need to delete from them
     // password resets should deal with themselves through cascades in foreign key
+    // median cache will NOT be correct after this, but that is not a big problem
 
     // delete player itself (causes cascades)
     $stmt = $sql->prepare('DELETE FROM players WHERE username=?');
