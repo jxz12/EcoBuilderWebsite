@@ -16,6 +16,7 @@ try
     $ticks = $_POST["datetime_ticks"];
     $matrix = $_POST["matrix"];
     $actions = $_POST["actions"];
+    $device = isset($_POST["device"]) ? $_POST["device"] : null; // earlier versions may not set device
 
     $sql = InitSQL();
     VerifyLogin($sql, $username, $password);
@@ -28,8 +29,8 @@ try
     $stmt->close();
 
     // insert into playthroughs
-    $stmt = $sql->prepare("INSERT INTO playthroughs (username, level_index, datetime_ticks, score, matrix, actions) VALUES (?,?,?,?,?,?)");
-    $stmt->bind_param('siiiss', $username, $index, $ticks, $score, $matrix, $actions);
+    $stmt = $sql->prepare("INSERT INTO playthroughs (username, level_index, datetime_ticks, score, matrix, actions, device) VALUES (?,?,?,?,?,?,?)");
+    $stmt->bind_param('siiisss', $username, $index, $ticks, $score, $matrix, $actions, $device);
     $stmt->execute();
     if ($stmt->affected_rows == 0) {
         http_response_code(503);

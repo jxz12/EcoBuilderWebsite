@@ -8,9 +8,9 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="livetype"
-   width="139.66437"
-   height="60.00013"
-   viewBox="0 0 139.66437 60.000128"
+   width="155"
+   height="60"
+   viewBox="0 0 155 59.999998"
    version="1.1"
    sodipodi:docname="badge_apple.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
@@ -47,8 +47,8 @@
      inkscape:snap-global="true"
      inkscape:snap-bbox="true"
      inkscape:zoom="2.3733105"
-     inkscape:cx="37.468265"
-     inkscape:cy="37.933893"
+     inkscape:cx="11.133745"
+     inkscape:cy="65.743149"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -61,7 +61,7 @@
      id="title2">Download_on_the_App_Store_Badge_US-UK_RGB_blk_4SVG_092917</title>
   <g
      id="g64"
-     transform="translate(10,10.00013)">
+     transform="matrix(1.04,0,0,1.04,15.274528,9.2000026)">
     <g
        id="g33">
       <g

@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS playthroughs (
     datetime_ticks BIGINT(20),
     matrix TEXT,
     actions TEXT,
+    device TEXT,
     received_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- in case datetime_ticks is wrong
 
     PRIMARY KEY (play_id),
