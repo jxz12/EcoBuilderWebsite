@@ -17,13 +17,40 @@
   <meta http-equiv="expires" content="0" />
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
+  <style>
+    .btn-autosize {
+      padding: 7px 10px;
+      font-size: 19px;
+      line-height: 1.5;
+      border-radius: 5px;
+    }
+    @media screen and (min-width: 600px) {
+      .btn-autosize {
+        padding: 10px 15px;
+        font-size: 26px;
+        line-height: 1.5;
+        border-radius: 7px;
+      }
+    }
+    @media screen and (min-width: 800px) {
+      .btn-autosize {
+        padding: 10px 16px;
+        font-size: 35px;
+        line-height: 1.33;
+        border-radius: 9px;
+    }
+  }
+  </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid" style="background-image:linear-gradient(#c7e5ff,white)" width="100%">
+  <!-- <div class="container-fluid" style="background-color:#f0f7ff" width="100%"> -->
     <div class="page-header text-center">
       <img class="img-fluid" src='img/logo.svg' alt='EcoBuilder logo'/>
     </div>
+  </div>
+  <div class="container">
     <div class="row">
       <div class="col-6 my-auto">
         <!-- this does not work on stupidly wide screens, but I am okay with that -->
@@ -45,24 +72,28 @@
         </a>
       </div>
     </div>
-    <div class="row mb-5">
+    <div class="row">
       <div class="col text-center">
         <p style="font-size:3vmin">or <a href="Beta">play online</a> (not optimised for all devices).</p>
       </div>
     </div>
+    <div class="row"><p style="font-size:1.5vmin"><br/></p></div>
   </div>
 
-  <div class="container-fluid bg-light" width="100%">
-    <div class="row mt-2">
+  <div class="container-fluid" style="background-color:#f2f2f2" width="100%">
+    <div class="row"><p style="font-size:.5vmin"><br/></p></div>
+    <div class="row">
       <div class="col text-center">
-        <p style="font-size:4vmin">Ecobuilder is being developed by:</h2>
+        <p style="font-size:4vmin">Ecobuilder is being developed by:</p>
       </div>
     </div>
     <div class="row">
       <div class="col text-center">
-        <a class="btn btn-primary" href='http://www.neural-reckoning.org' width="100%">Neural Reckoning</a>
+        <p style="font-size:4vmin">
+        <a class="btn-lg btn-info btn-autosize" href='http://www.neural-reckoning.org' width="100%">Neural Reckoning</a>
         and
-        <a class="btn btn-primary" href='http://www.pawarlab.org' width="100%">Pawar Lab</a>
+        <a class="btn-lg btn-success btn-autosize" href='http://www.pawarlab.org' width="100%">Pawar Lab</a>
+        </p>
       </div>
     </div>
     <div class="row">
@@ -72,20 +103,22 @@
     </div>
     <div class="row">
       <div class="col text-center">
-        <img src='img/imperial.svg' width="50%"/>
+        <img class="img-fluid" style="max-width:75%" src='img/imperial.svg' width="500"/>
       </div>
     </div>
+    <div class="row"><p style="font-size:vmin"><br/></p></div>
   </div>
 
-  <div class="container">
-    <div class="row mt-5">
+  <div class="container-fluid" style="background-color:#C4AC89" width="100%">
+    <div class="row"><p style="font-size:8"><br/></p></div>
+    <div class="row">
       <div class="col text-center">
-        <p style="font-size:10vmin">
-          <a class="btn btn-primary" href='Accessibility_Notice.html'>ACCESSIBILITY</a>
-          <a class="btn btn-primary" href='ecobuilder@imperial.ac.uk'>Contact</a>
-        </p>
+        <a class="btn-lg btn-dark" href='Accessibility_Notice.html'>ACCESSIBILITY</a>
+        &emsp; 
+        <a class="btn-lg btn-dark" href='mailto:ecobuilder@imperial.ac.uk'>Contact</a>
       </div>
     </div>
+    <div class="row"><p style="font-size:8"><br/></p></div>
   </div>
 </div>
 
