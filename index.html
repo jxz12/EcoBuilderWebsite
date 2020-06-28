@@ -21,8 +21,17 @@
 
 <body>
   <div class="container">
-    <div class="page-header">
-      <img src='img/logo.svg' class="img-fluid mx-auto d-block"/>
+    <div class="page-header text-center">
+      <img class="img-fluid" src='img/logo.svg' alt='EcoBuilder logo'/>
+    </div>
+    <div class="row">
+      <div class="col-6 my-auto">
+        <!-- this does not work on stupidly wide screens, but I am okay with that -->
+        <p class="mt-3" style="font-size:2.5vmin">EcoBuilder is a game where you will build your own ecosystem of plants and animals, modelled using the same simulations that researchers use to study real ecosystems. You will learn about various ecological phenomena along the way as you construct your ecosystems, and if you get really good at playing then your high scores will help real researchers to understand ecosystems better!</p>
+      </div>
+      <div class="col-6 my-auto">
+        <img class="img-fluid" src='img/device.png' width="100%" alt='Device screenshots'/>
+      </div>
     </div>
     <div class="row">
       <div class="col">
@@ -36,23 +45,47 @@
         </a>
       </div>
     </div>
-
-    <footer class="fixed-bottom">
-    <div class="row">
-      <div class="col">
-        <a href='Accessibility_Notice.html'>ACCESSIBILITY</a>
-      </div>
-      <div class="col">
-        <a href='neural-reckoning.org'>Neural Reckoning</a>
-      </div>
-      <div class="col">
-        <a href='pawarlab.org'>Pawar Lab</a>
-      </div>
-      <div class="col">
-        <img src='img/imperial.svg' class="img-fluid"/>
+    <div class="row mb-5">
+      <div class="col text-center">
+        <p style="font-size:3vmin">or <a href="Beta">play online</a> (not optimised for all devices).</p>
       </div>
     </div>
-    </footer>
+  </div>
+
+  <div class="container-fluid bg-light" width="100%">
+    <div class="row mt-2">
+      <div class="col text-center">
+        <p style="font-size:4vmin">Ecobuilder is being developed by:</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <a class="btn btn-primary" href='http://www.neural-reckoning.org' width="100%">Neural Reckoning</a>
+        and
+        <a class="btn btn-primary" href='http://www.pawarlab.org' width="100%">Pawar Lab</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <p style="font-size:4vmin">at</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <img src='img/imperial.svg' width="50%"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col text-center">
+        <p style="font-size:10vmin">
+          <a class="btn btn-primary" href='Accessibility_Notice.html'>ACCESSIBILITY</a>
+          <a class="btn btn-primary" href='ecobuilder@imperial.ac.uk'>Contact</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
